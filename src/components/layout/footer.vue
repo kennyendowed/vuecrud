@@ -1,6 +1,6 @@
 <template>
 <!-- ======= Footer ======= -->
-<footer id="footer">
+<footer id="footer" v-if="$route.meta.header =='header'">
   <div class="container">
     <div class="copyright">
       &copy; Copyright <strong><span>iPortfolio</span></strong>

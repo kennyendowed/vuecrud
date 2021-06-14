@@ -6,7 +6,7 @@
   <!-- End Hero -->
 
   <main id="main">
-<Home />
+
 <router-view />
   </main>
   <Footer />

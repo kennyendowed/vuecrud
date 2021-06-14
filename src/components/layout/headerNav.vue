@@ -1,6 +1,6 @@
 <template>
    <!-- ======= Mobile nav toggle button ======= -->
-      <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+      <button v-if="$route.meta.header =='header'" type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Navbar</a>
   <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +34,7 @@
   </div>
 </nav>
       <!-- ======= Header ======= -->
-      <header id="header">
+      <header id="header" v-if="$route.meta.header =='header'">
         <div class="d-flex flex-column">
 
           <div class="profile">
@@ -51,13 +51,15 @@
 
           <nav class="nav-menu">
             <ul>
-           
-              <li class="active"><a href="index.html"><i class="bx bx-home"></i> <span>Home</span></a></li> -->
-              <li><a href="#about"><i class="bx bx-user"></i> <span>About</span></a></li>
+
+            <router-link class="active" :to="{ name: 'Home' }"><i class="bx bx-home"></i> <span>Home</span></router-link>
+              <router-link to="/about"><i class="bx bx-user"></i> <span>About</span></router-link>
               <li><a href="#resume"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
               <li><a href="#portfolio"><i class="bx bx-book-content"></i> Portfolio</a></li>
               <li><a href="#services"><i class="bx bx-server"></i> Services</a></li>
-              <li><a href="#contact"><i class="bx bx-envelope"></i> Contact</a></li>
+             <router-link to="/contact"><i class="bx bx-envelope"></i> Contact</router-link>
+               <router-link  :to="{ name: 'Login' }"><i class="bx bx-lock"></i> <span>Login</span></router-link>
+                 <router-link  :to="{ name: 'Register' }"><i class="bx bx-user"></i> <span>Register</span></router-link>
              
 
             </ul>
@@ -66,6 +68,21 @@
 
         </div>
       </header><!-- End Header -->
+         <!-- ======= Breadcrumbs ======= -->
+    <!-- <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Inner Page</h2>
+          <ol>
+             <router-link :to="{ name: 'Home' }">Home</router-link> |
+                 <li>Inner Page</li>
+          </ol>
+        </div>
+
+      </div>
+    </section> -->
+    <!-- End Breadcrumbs -->
 </template>
 
 <script>
